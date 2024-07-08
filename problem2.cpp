@@ -10,6 +10,13 @@
 
 using namespace std;
 
+// Declare functions
+char computerChoice();
+char userChoice();
+void determineWinner(char, char);
+bool playAgain();
+
+
 int main() {
 
 // Declare and initialize variables
@@ -24,7 +31,7 @@ int main() {
 // 3 = scissors
 
 // Convert randomize number to char computer's choice
-  char computerChoice() {
+  computerChoice() {
     // int(computer); ??
     if (computer == 1) {
       computer == 'R';
@@ -36,7 +43,7 @@ int main() {
   }
 
 // Prompt the user to choose "rock," "paper," or "scissors" using a menu in a function
-  char userChoice() {
+  userChoice() {
     cout << "Welcome Rock / Paper / Scissors game! Here are your choices: " << endl << endl
         << setw(14) << "R/r:  ROCK" << endl << "P/p:  PAPER" << endl << "S/s:  SCISSORS" << endl << endl;
         cout << "Please make a selection" << endl;
@@ -46,7 +53,7 @@ int main() {
 
 
 // Output the results of the game to the user
-  void determineWinner(char, char) {
+  determineWinner(user, computer) {
     if (user == computer) {
       cout << "Both you and the computer chose " << user << ". You end in a draw!" << endl;
     } else if ((user == 'R' || user == 'r') && (computer == 'P') {
@@ -67,7 +74,7 @@ int main() {
   }
 
 // Prompt the user to choose whether or not to play again and run the result through playAgain function
-  bool playAgain() {
+  playAgain() {
     cout << "Would you like to play again? (Y/y for yes, N/n for No)" << endl;
     cin >> user;
       if (user == Y || user == y) {
