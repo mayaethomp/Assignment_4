@@ -13,17 +13,7 @@ using namespace std;
 int main() {
 
 // Declare and initialize variables
-int user = 0;
-
-
-
-
-// Declare functions
-// char userChoice();
-// char computerChoice();
-// void determineWinner(char, char);
-// bool playAgain();
-
+  int user = 0;
 
 // Generate a random number for the computer's choice
   srand(time(NULL));
@@ -33,17 +23,24 @@ int user = 0;
 // 2 = paper
 // 3 = scissors
 
+// Convert randomize number to char computer's choice
+
+
+// Store computer's choice
+  char computerChoice();
 
 // Prompt the user to choose "rock," "paper," or "scissors" using a menu in a function
-  cout << "Welcome Rock / Paper / Scissors game! Here are your choices: " << endl << endl << setw(14) << "R/r:  ROCK" << endl << "P/p:  PAPER" << endl << "S/s:  SCISSORS" << endl << endl;
-  cout << "Please make a selection" << endl;
+char userChoice() {
+  cout << "Welcome Rock / Paper / Scissors game! Here are your choices: " << endl << endl
+       << setw(14) << "R/r:  ROCK" << endl << "P/p:  PAPER" << endl << "S/s:  SCISSORS" << endl << endl;
+       cout << "Please make a selection" << endl;
   cin >> user;
-
-
+}
 
 
 
 // Output the results of the game to the user
+void determineWinner(char, char) {
   if (user == computer) {
     cout << "Both you and the computer chose " << user << ". You end in a draw!" << endl;
   } else if ((user == 'R' || user == 'r') && (computer == 'P' || computer == 'p')) {
@@ -61,8 +58,9 @@ int user = 0;
   } else {
     cout << "Invalid response entered." << endl;
   }
+}
 
-// Prompt the user to choose whether or not to play again
+// Prompt the user to choose whether or not to play again and run the result through playAgain function
 bool playAgain() {
   cout << "Would you like to play again? (Y/y for yes, N/n for No)" << endl;
   cin >> user;
