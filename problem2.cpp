@@ -24,10 +24,9 @@ int main() {
 // 3 = scissors
 
 // Convert randomize number to char computer's choice
-
-
-// Store computer's choice
-  char computerChoice();
+  char computerChoice() {
+    // int(computer); ??
+  };
 
 // Prompt the user to choose "rock," "paper," or "scissors" using a menu in a function
 char userChoice() {
