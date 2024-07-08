@@ -1,6 +1,7 @@
 // Maya Thompson
 // CS 1, Section# 0107
-// Assignment #4, Problem #1`
+// Assignment #4, Problem #1
+// Summary: This program find
 
 #include <iostream>
 
