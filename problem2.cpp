@@ -29,6 +29,10 @@ int user = 0;
   srand(time(NULL));
   int computer = rand() % 3 + 1;
 
+// 1 = rock
+// 2 = paper
+// 3 = scissors
+
 
 // Prompt the user to choose "rock," "paper," or "scissors" using a menu in a function
   cout << "Welcome Rock / Paper / Scissors game! Here are your choices: " << endl << endl << setw(14) << "R/r:  ROCK" << endl << "P/p:  PAPER" << endl << "S/s:  SCISSORS" << endl << endl;
@@ -37,9 +41,7 @@ int user = 0;
 
 
 
-// 1 = rock
-// 2 = paper
-// 3 = scissors
+
 
 // Output the results of the game to the user
   if (user == computer) {
