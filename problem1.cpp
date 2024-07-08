@@ -4,6 +4,7 @@
 // Summary: This program finds all Perfect Numbers that fall between two integer values inputted by the user
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
