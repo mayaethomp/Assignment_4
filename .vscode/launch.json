@@ -2,14 +2,36 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "(gdb) Launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "clang++ build active file",
+      "miDebuggerPath": "gdb",
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/devProjects/Contribute-to-this-project/Assignment_4",
-      "program": "c:/devProjects/Contribute-to-this-project/Assignment_4/build/Debug/outDebug",
+      "cwd": "c:/devProjects/CS1/Assignment_4",
+      "program": "c:/devProjects/CS1/Assignment_4/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
