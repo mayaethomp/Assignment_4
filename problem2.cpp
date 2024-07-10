@@ -7,6 +7,7 @@
 #include <stdlib.h> // Library that allows randomized number
 #include <iomanip>
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 
@@ -16,6 +17,9 @@ int randomNum = 0;
 
 // Declare and define a computer choice function
   char computerChoice(int randomNum) {
+    // Generate a random number for the computer's choice
+    srand(time(NULL));
+    randomNum = rand() % 4;
     // 1 = rock
     // 2 = paper
     // 3 = scissors
@@ -25,6 +29,8 @@ int randomNum = 0;
       return 'P';
     } else if (randomNum == 3) {
       return 'S';
+  } else {
+    return 'F';
   }
   }
 
@@ -40,25 +46,28 @@ int randomNum = 0;
 
 
 // Declare and define a function to determine a winner
-  string determineWinner(char user, char computer) {
+string determineWinner(char user, char computer) {
+    ostringstream result;
     if (user == computer) {
-      cout << "Both you and the computer chose " << user << ". You end in a draw!" << endl;
+        result << "Both you and the computer chose " << user << ". You end in a draw!\n";
     } else if ((user == 'R' || user == 'r') && (computer == 'P')) {
-      cout << "You chose ROCK and the computer chose PAPER. PAPER covers ROCK. You lose. Sorry." << endl;
+        result << "You chose ROCK and the computer chose PAPER. PAPER covers ROCK. You lose.\n";
     } else if ((user == 'R' || user == 'r') && (computer == 'S')) {
-      cout << "You chose ROCK and the computer chose SCISSORS. ROCK crushes SCISSORS. You win!" << endl;
+        result << "You chose ROCK and the computer chose SCISSORS. ROCK crushes SCISSORS. You win!\n";
     } else if ((user == 'P' || user == 'p') && (computer == 'R')) {
-      cout << "You chose PAPER and the computer chose ROCK. PAPER covers ROCK. You win!" << endl;
-    } else if ((user == 'P' || 'p') && (computer == 'S')) {
-      cout << "You chose PAPER and the computer chose SCISSORS. SCISSORS cuts PAPER. You lose. Sorry." << endl;
+        result << "You chose PAPER and the computer chose ROCK. PAPER covers ROCK. You win!\n";
+    } else if ((user == 'P' || user == 'p') && (computer == 'S')) {
+        result << "You chose PAPER and the computer chose SCISSORS. SCISSORS cuts PAPER. You lose.\n";
     } else if ((user == 'S' || user == 's') && (computer == 'R')) {
-      cout << "You chose SCISSORS and the computer chose ROCK. ROCK crushes SCISSORS. You lose. Sorry." << endl;
+        result << "You chose SCISSORS and the computer chose ROCK. ROCK crushes SCISSORS. You lose.\n";
     } else if ((user == 'S' || user == 's') && (computer == 'P')) {
-      cout << "You chose SCISSORS and the computer chose PAPER. SCISSORS cuts PAPER. You win!" << endl;
+        result << "You chose SCISSORS and the computer chose PAPER. SCISSORS cuts PAPER. You win!\n";
     } else {
-      cout << "Invalid response entered." << endl;
+        result << "Invalid response entered.\n";
     }
-  }
+    return result.str();
+}
+
 
 // Declare and define a function that prompts the user if they want to play again
    bool playAgain() {
@@ -69,6 +78,7 @@ int randomNum = 0;
         return true;
       } else if (playYN == 'N' || playYN == 'n') {
         cout << "Thank you for playing Rock / Paper / Scissors! Have a great day!";
+        return false;
       } else {
         return false;
       }
@@ -77,22 +87,23 @@ int randomNum = 0;
 
 int main() {
 
-
-  while (playAgain() == true) {
-    // Generate a random number for the computer's choice
-    srand(time(NULL));
-    int randomNum = rand() % 4;
-    char computer = computerChoice(randomNum);
-    
-    
-    // Prompt the user to choose "rock," "paper," or "scissors" using a menu in a function
+    // Use userChoice() function to prompt the user to choose "rock," "paper," or "scissors" using a menu in a function
     char user = userChoice();
-    
+    // Use computerChoice() function to generate a random number to assign the computer's choice
+    char computer = computerChoice(randomNum);
     // Output the results of the game to the user
     cout << determineWinner(user, computer) << endl;
-
     // Prompt the user to choose whether or not to play again and run the result through playAgain function
     playAgain();
+
+// If the user responds yes to play again, rerun the program until the user answers no
+  while (playAgain() == true) {
+    
+    char user = userChoice();
+    cout << determineWinner(user, computer) << endl;
+    char computer = computerChoice(randomNum);
+    playAgain();
+  
   }
 
 
