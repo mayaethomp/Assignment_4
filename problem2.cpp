@@ -47,7 +47,14 @@ int randomNum = 0;
 string determineWinner(char user, char computer) {
     ostringstream result;
     if (user == computer) {
-        result << "Both you and the computer chose " << user << ". You end in a draw!\n";
+      // Use an if statement to determine what both choices were
+        if (user == 'R') {
+          result << "Both you and the computer chose ROCK. You end in a draw!\n";
+        } else if (user == 'P') {
+          result << "Both you and the computer chose PAPER. You end in a draw!\n";
+        } else if (user == 'S') {
+          result << "Both you and the computer chose SCISSORS. You end in a draw!\n";
+        }
     } else if ((user == 'R') && (computer == 'P')) {
         result << "You chose ROCK and the computer chose PAPER. PAPER covers ROCK. You lose. Sorry. \n";
     } else if ((user == 'R') && (computer == 'S')) {
