@@ -18,7 +18,7 @@ int randomNum = 0;
 // Declare and define a user choice function
   char userChoice() {
     cout << "Welcome Rock / Paper / Scissors game! Here are your choices: " << endl << endl
-        << setw(14) << "R/r:  ROCK" << endl << "P/p:  PAPER" << endl << "S/s:  SCISSORS" << endl << endl;
+        << setw(14) << "R/r:  ROCK" << endl << setw(15) << "P/p:  PAPER" << endl << setw(18) << "S/s:  SCISSORS" << endl << endl;
         cout << "Please make a selection" << endl;
     cin >> user;
     return toupper(user);
@@ -49,15 +49,15 @@ string determineWinner(char user, char computer) {
     if (user == computer) {
         result << "Both you and the computer chose " << user << ". You end in a draw!\n";
     } else if ((user == 'R') && (computer == 'P')) {
-        result << "You chose ROCK and the computer chose PAPER. PAPER covers ROCK. You lose.\n";
+        result << "You chose ROCK and the computer chose PAPER. PAPER covers ROCK. You lose. Sorry. \n";
     } else if ((user == 'R') && (computer == 'S')) {
         result << "You chose ROCK and the computer chose SCISSORS. ROCK crushes SCISSORS. You win!\n";
     } else if ((user == 'P') && (computer == 'R')) {
         result << "You chose PAPER and the computer chose ROCK. PAPER covers ROCK. You win!\n";
     } else if ((user == 'P') && (computer == 'S')) {
-        result << "You chose PAPER and the computer chose SCISSORS. SCISSORS cuts PAPER. You lose.\n";
+        result << "You chose PAPER and the computer chose SCISSORS. SCISSORS cuts PAPER. You lose. Sorry. \n";
     } else if ((user == 'S') && (computer == 'R')) {
-        result << "You chose SCISSORS and the computer chose ROCK. ROCK crushes SCISSORS. You lose.\n";
+        result << "You chose SCISSORS and the computer chose ROCK. ROCK crushes SCISSORS. You lose. Sorry. \n";
     } else if ((user == 'S') && (computer == 'P')) {
         result << "You chose SCISSORS and the computer chose PAPER. SCISSORS cuts PAPER. You win!\n";
     } else {
