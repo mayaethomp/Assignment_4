@@ -12,16 +12,18 @@ using namespace std;
 
 // Define and initialize variables 
 char user = 'A';
-int computer = 0;
+int randomNum = 0;
 
 // Declare and define a computer choice function
-  char computerChoice(int num) {
-    // int(computer); ??
-    if (num == 1) {
+  char computerChoice(int randomNum) {
+    // 1 = rock
+    // 2 = paper
+    // 3 = scissors
+    if (randomNum == 1) {
       return 'R';
-    } else if (num == 2) {
+    } else if (randomNum == 2) {
       return 'P';
-    } else if (num == 3) {
+    } else if (randomNum == 3) {
       return 'S';
   }
   }
@@ -60,12 +62,12 @@ int computer = 0;
 
 // Declare and define a function that prompts the user if they want to play again
    bool playAgain() {
-    char playAgain;
+    char playYN;
     cout << "Would you like to play again? (Y/y for yes, N/n for No)" << endl;
-    cin >> playAgain;
-      if (playAgain == 'Y' || playAgain == 'y') {
+    cin >> playYN;
+      if (playYN == 'Y' || playYN == 'y') {
         return true;
-      } else if (playAgain == 'N' || playAgain == 'n') {
+      } else if (playYN == 'N' || playYN == 'n') {
         cout << "Thank you for playing Rock / Paper / Scissors! Have a great day!";
       } else {
         return false;
@@ -74,10 +76,6 @@ int computer = 0;
 
 
 int main() {
-
-// 1 = rock
-// 2 = paper
-// 3 = scissors
 
 
   while (playAgain() == true) {
