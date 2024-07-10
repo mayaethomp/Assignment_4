@@ -7,6 +7,7 @@
 #include <stdlib.h> // Library that allows randomized number
 #include <iomanip>
 #include <cmath>
+#include <ctime> // Library for time functions
 
 using namespace std;
 
@@ -20,21 +21,21 @@ int randomNum = 0;
         << setw(14) << "R/r:  ROCK" << endl << setw(15) << "P/p:  PAPER" << endl << setw(18) << "S/s:  SCISSORS" << endl << endl;
         cout << "Please make a selection" << endl;
     cin >> user;
-    return toupper(user);  // Converts char to uppercase
+    return toupper(user);  // Changes char to uppercase
+
   }
 
 // Declare and define a computer choice function
   char computerChoice(int randomNum) {
     // Generate a random number for the computer's choice
-    srand(time(NULL));
-    randomNum = rand() % 4;  
+    randomNum = rand() % 3;  
 
     // Use an if else statement to convert the number to its associated choice of rock, paper, scissors
-    if (randomNum == 1) {           // 1 = rock
+    if (randomNum == 0) {           // 0 = rock
       return 'R';
-    } else if (randomNum == 2) {    // 2 = paper
+    } else if (randomNum == 1) {    // 1 = paper
       return 'P';
-    } else if (randomNum == 3) {    // 3 = scissors
+    } else if (randomNum == 2) {    // 2 = scissors
       return 'S';
     } else {
       return 'F';
@@ -94,6 +95,9 @@ int main() {
   
   // Required to prevent endless playAgain loop??
   bool keepPlaying = true;
+
+  // Initialize random number generator
+  srand(time(NULL));
 
   // Use a while loop to restart the game is user chooses to play again
   while (keepPlaying) {
