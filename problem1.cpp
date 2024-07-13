@@ -10,12 +10,12 @@ using namespace std;
 bool isAFactor(int x, int y);
 void isPerfect(int startval, int endval);
 
- // define a function to determine if a number is a factor of another number
+ // Define a function to determine if a number is a factor of another number
 bool isAFactor(int x, int y) {
   return x % y == 0;
 }
 
-// Declare and define a function to determine if a factor is a perfect number
+// Define a function to determine if a factor is a perfect number
 void isPerfect(int startval, int endval) {
   bool perfect = false;
   // Create a loop that steps through the range of numbers between startval and endval
@@ -26,7 +26,7 @@ void isPerfect(int startval, int endval) {
       if (isAFactor(outerval, innerval)) { 
         sum += innerval; // add proper divisor to sum
       } 
-    } if (sum == outerval && outerval != 0) {
+    } if (sum == outerval) {
         cout << outerval << " is a perfect number." << endl;
         perfect = true;
       }
@@ -39,6 +39,7 @@ void isPerfect(int startval, int endval) {
   } 
 
 int main() {
+
 
   // Declare and initialize variables
   int startval = 0;
