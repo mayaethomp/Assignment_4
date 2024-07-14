@@ -17,12 +17,19 @@ int randomNum = 0;
 
 // Declare and define a user choice function
   char userChoice() {
-    cout << "Welcome to the Rock / Paper / Scissors game! Here are your choices: " << endl << endl
-        << setw(14) << "R/r:  ROCK" << endl << setw(15) << "P/p:  PAPER" << endl << setw(18) << "S/s:  SCISSORS" << endl << endl;
-        cout << "Please make a selection" << endl;
-    cin >> user;
-    return toupper(user);  // Changes char to uppercase
-
+    char user;
+    while (true) {
+        cout << "Welcome to the Rock / Paper / Scissors game! Here are  your choices: " << endl << endl
+            << setw(14) << "R/r:  ROCK" << endl << setw(15) << "P/p:  PAPER" << endl << setw(18) << "S/s:  SCISSORS" << endl << endl;
+            cout << "Please make a selection" << endl;
+        cin >> user;
+        user = toupper(user);  // Changes char to uppercase
+        if (user == 'R' || user == 'P' || user == 'S') {
+            return user;
+        } else {
+            cout << "Invalid response entered. Please try again." << endl;
+        }
+    }
   }
 
 // Declare and define a computer choice function
@@ -43,48 +50,53 @@ int randomNum = 0;
   }
 
 // Declare and define a function to determine a winner and output the results to the screen
-string determineWinner(char user, char computer) {
+void determineWinner(char user, char computer) {
     if (user == computer) {
       // Use a nested if else statement to output what both choices were
         if (user == 'R') {
-          return "Both you and the computer chose ROCK. You end in a draw!\n";
+          cout << "Both you and the computer chose ROCK. You end in a draw!\n";
         } else if (user == 'P') {
-          return "Both you and the computer chose PAPER. You end in a draw!\n";
+          cout << "Both you and the computer chose PAPER. You end in a draw!\n";
         } else if (user == 'S') {
-          return "Both you and the computer chose SCISSORS. You end in a draw!\n";
+          cout << "Both you and the computer chose SCISSORS. You end in a draw!\n";
         }
     // If user and computer choices are different, if else to determine who wins
     } else if ((user == 'R') && (computer == 'P')) {
-        return "You chose ROCK and the computer chose PAPER. PAPER covers ROCK. You lose. Sorry. \n";
+        cout <<  "You chose ROCK and the computer chose PAPER. PAPER covers ROCK. You lose. Sorry. \n";
     } else if ((user == 'R') && (computer == 'S')) {
-        return "You chose ROCK and the computer chose SCISSORS. ROCK crushes SCISSORS. You win!\n";
+        cout << "You chose ROCK and the computer chose SCISSORS. ROCK crushes SCISSORS. You win!\n";
     } else if ((user == 'P') && (computer == 'R')) {
-        return "You chose PAPER and the computer chose ROCK. PAPER covers ROCK. You win!\n";
+        cout << "You chose PAPER and the computer chose ROCK. PAPER covers ROCK. You win!\n";
     } else if ((user == 'P') && (computer == 'S')) {
-        return "You chose PAPER and the computer chose SCISSORS. SCISSORS cuts PAPER. You lose. Sorry. \n";
+        cout << "You chose PAPER and the computer chose SCISSORS. SCISSORS cuts PAPER. You lose. Sorry. \n";
     } else if ((user == 'S') && (computer == 'R')) {
-        return "You chose SCISSORS and the computer chose ROCK. ROCK crushes SCISSORS. You lose. Sorry. \n";
+        cout << "You chose SCISSORS and the computer chose ROCK. ROCK crushes SCISSORS. You lose. Sorry. \n";
     } else if ((user == 'S') && (computer == 'P')) {
-        return "You chose SCISSORS and the computer chose PAPER. SCISSORS cuts PAPER. You win!\n";
+        cout << "You chose SCISSORS and the computer chose PAPER. SCISSORS cuts PAPER. You win!\n";
     } else {
-        return "Invalid response entered.\n";
+        cout << "Invalid response entered.\n";
     } 
-  
-    return "Invalid response entered.\n";
-}
+
+   }
+
 
 // Declare and define a function that prompts the user if they want to play again
    bool playAgain() {
     char playYN;
-    cout << "Would you like to play again? (Y/y for yes, N/n for No)" << endl;
-    cin >> playYN;
-      if (playYN == 'Y' || playYN == 'y') {
-        return true;
-      } else if (playYN == 'N' || playYN == 'n') {
-        cout << "Thank you for playing Rock / Paper / Scissors! Have a great day!";
-        return false;
-      } else {
-        return false;
+    
+      while (true) {
+        cout << "Would you like to play again? (Y/y for yes, N/n for No)" << endl;
+        cin >> playYN;
+        
+        if (playYN == 'Y' || playYN == 'y') {
+          return true; // User plays again
+        } else if (playYN == 'N' || playYN == 'n') {
+          cout << "Thank you for playing Rock / Paper / Scissors! Have a great day!"; // Ends game
+          return false; 
+        } else {
+          cout << "Invalid response entered." << endl; // Repeats loop
+        }
+
       }
    }
 
@@ -93,7 +105,7 @@ int main() {
 
   // MAIN GAME // 
   
-  // Required to prevent endless playAgain loop??
+  
   bool keepPlaying = true;
 
   // Initialize random number generator
@@ -106,7 +118,7 @@ int main() {
      // Use computerChoice() function to generate a random number to assign the computer's choice
     char computer = computerChoice(randomNum);
     // Output the results of the game to the user
-    cout << determineWinner(user, computer) << endl;
+    determineWinner(user, computer);
     // Prompt the user to choose whether or not to play again and run the result through playAgain function
     keepPlaying = playAgain();
   }

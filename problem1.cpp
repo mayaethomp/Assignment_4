@@ -1,7 +1,7 @@
 // Maya Thompson
 // CS 1, Section# 0107
 // Assignment #4, Problem #1
-// Summary: This program finds all Perfect Numbers that fall between two integer values inputted by the user. A number is a perfect number if it is equal to the sum of its proper divsors (sum of its divisors excluding and smaller than the number itself)
+// Summary: This program finds all Perfect Numbers that fall between two integer values inputted by the user. A number is a perfect number if it is equal to the sum of its proper divsors (excluding and smaller than the number itself)
 
 #include <iostream>
 using namespace std;
