@@ -7,7 +7,7 @@
 #include <stdlib.h> // Library that allows randomized number
 #include <iomanip>
 #include <cmath>
-#include <ctime> // Library for time functions for random number generator
+#include <ctime> // Library for time function for random number generator
 
 using namespace std;
 
